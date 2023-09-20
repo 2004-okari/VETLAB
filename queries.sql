@@ -54,3 +54,28 @@ SELECT species, AVG(escape_attempts)
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+-- Alter to add new column
+ALTER TABLE animals
+ADD COLUMN species varchar(255);
+
+-- transaction 1
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species = 'unspecified';
+COMIT;
+
+-- transaction 2
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
+-- transaction 3
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+SAVEPOINT weight_update_savepoint;
+UPDATE animals SET weight_kg = weight_kg * -1;
+ROLLBACK TO SAVEPOINT weight_update_savepoint;
+UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+COMMIT;
