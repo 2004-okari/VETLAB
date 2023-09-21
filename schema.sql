@@ -33,7 +33,7 @@ DROP COLUMN species;
 
 -- Adding species_id column
 ALTER TABLE animals
-ADD COLUMN species_id varchar(255)
+ADD COLUMN species_id INTEGER
 FOREIGN KEY (species_id)
 REFERENCES species(id);
 
@@ -43,16 +43,3 @@ ADD COLUMN owner_id INTEGER,
 ADD CONSTRAINT fk_owner
 FOREIGN KEY (owner_id)
 REFERENCES owners(id);
-
--- add species_id
-UPDATE animals
-SET species_id = (
-    CASE
-        WHEN name LIKE '%mon' THEN
-            (SELECT id FROM species WHERE name = 'Digimon')
-        ELSE
-            (SELECT id FROM species WHERE name = 'Pokemon')
-    END
-);
-
---
