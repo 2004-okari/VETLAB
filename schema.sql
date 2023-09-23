@@ -7,9 +7,39 @@ CREATE TABLE animals (
     escape_attempts integer,
     neutered boolean,
     weight_kg decimal,
-    species varchar(255)
+    species_id integer
 );
 
 -- Alter to add new column
 ALTER TABLE animals
 ADD COLUMN species varchar(255);
+
+-- owners table
+CREATE TABLE owners (
+    id serial PRIMARY KEY,
+    full_name varchar(255),
+    age integer
+);
+
+-- species table
+CREATE TABLE species (
+    id serial PRIMARY KEY,
+    name varchar(255)
+);
+
+-- Removing species column
+ALTER TABLE animals
+DROP COLUMN species;
+
+-- Adding species_id column
+ALTER TABLE animals
+ADD COLUMN species_id INTEGER
+FOREIGN KEY (species_id)
+REFERENCES species(id);
+
+-- Addiing owners_id
+ALTER TABLE animals
+ADD COLUMN owner_id INTEGER,
+ADD CONSTRAINT fk_owner
+FOREIGN KEY (owner_id)
+REFERENCES owners(id);
