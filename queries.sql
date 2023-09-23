@@ -132,3 +132,67 @@ LEFT JOIN animals ON owners.id = animals.owner_id
 GROUP BY owners.full_name
 ORDER BY COUNT(animals.owner_id) DESC
 LIMIT 1;
+
+-- Relationships
+SELECT animals.name 
+FROM animals JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON visits.vet_id = vets.id 
+WHERE vets.name = 'William Tatcher' 
+ORDER BY visits.date_of_visit DESC 
+LIMIT 1; 
+
+SELECT COUNT(DISTINCT animals.id)
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Stephanie Mendez';
+
+SELECT vets.name, COALESCE(species.name, 'No Specialty')
+FROM vets 
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+LEFT JOIN species ON specializations.species_id = species.id;
+
+SELECT animals.name
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Stephanie Mendez'
+AND visits.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+
+SELECT animals.name, COUNT(visits.animal_id)
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+GROUP BY (visits.animal_id, animals.name)
+ORDER BY COUNT(visits.animal_id) DESC
+LIMIT 1;
+
+SELECT animals.name, MIN(visits.date_of_visit)
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Maisy Smith'
+GROUP BY animals.name
+ORDER BY MIN(visits.date_of_visit)
+LIMIT 1;
+
+SELECT animals.name, vets.name, visits.date_of_visit
+FROM animals
+JOIN visits ON animals.id = visits.animal_id
+JOIN vets ON vets.id = visits.vet_id
+ORDER BY visits.date_of_visit DESC LIMIT 1;
+
+SELECT COUNT(*)
+FROM visits
+JOIN vets ON visits.vet_id = vets.id
+LEFT JOIN specializations ON vets.id = specializations.vet_id
+WHERE specializations.species_id IS NULL;
+
+SELECT species.name, COUNT(*)
+FROM visits
+JOIN vets ON visits.vet_id = vets.id
+JOIN animals ON visits.animal_id = animals.id
+LEFT JOIN species ON animals.species_id = species.id
+WHERE vets.name = 'Maisy Smith'
+GROUP BY species.name
+ORDER BY COUNT(*) DESC LIMIT 1;
