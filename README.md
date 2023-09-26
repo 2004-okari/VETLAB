@@ -1,19 +1,13 @@
-# curriculum-databases-projects-template
+<div align="center">
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
+  <h1><b>Vet Clinic</b></h1>
 
-
-## Getting Started
-
-This repository includes files with plain SQL that can be used to recreate a database:
-
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+</div>
 
 <a name="readme-top"></a>
 
+
+<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
@@ -22,11 +16,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -36,19 +25,16 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Vet clinic database] <a name="about-project"></a>
+# 📖 Vet Clinic <a name="about-project"></a>
 
-> In this project, I use a relational database to create the initial data structure for a vet clinic. I create a table to store animals's information, insert some data into it, and query it.
-
-**[Vet clinic database]** is a relational database create to store animals's information, insert some data into it, and query it.
+**Vet Clinic** is a postgreSQL database where you can insert or find animal information like name, date of birth, neutered, escape attempts and its weight.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
 <details>
-  <summary>Database</summary>
+<summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
@@ -58,61 +44,31 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create database]**
-- **[Insert and query data in SQL]**
+- **Database**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
+This repository includes files with plain SQL that can be used to recreate a database:
 
-
-To get a local copy up and running, follow these steps.
-
-- Clone the [project using github](git@github.com:2004-okari/VETLAB.git)
-
-
-
-### Setup
-
-After cloning this repository to your desired folder:
-
-```sh
-
-  cd my-folder
-
-```
-
-### Install
-
-Install this project with:
-
-[PostgreSQL](https://www.postgresql.org/download/)
-
-### Usage
-
-To run the project, execute the following command:
-
-```sh
-  psql -U postgres
-```
-
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  \c dbname
-  SELECT * from tableName;
-
-```
+- Use [schema.sql](./schema.sql) to create all tables.
+- Use [data.sql](./data.sql) to populate tables with sample data.
+- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
+
+👤 **Katherine Cendana**
+
+- GitHub: [@Kccendana](https://github.com/Kccendana)
+- Twitter: [@kc_telyn](https://twitter.com/kc_telyn)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/katherinecendana/)
 
 👤 **2004-okari**
 
@@ -126,10 +82,7 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-
-- [ ] **[Develop interface]**
-- [ ] **[Add more colums]**
-
+- [ ] **Add additional account table**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,8 +100,7 @@ Feel free to check the [issues page](https://github.com/2004-okari/VETLAB/issues
 
 ## ⭐️ Show your support <a name="support"></a>
 
-
-If you like this project give me star .
+If you like this project, please share this with your friends.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,11 +108,7 @@ If you like this project give me star .
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
-I would like to thank Microverse .
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+I would like to thank Microverse for giving me opportunity to learn about database.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,6 +116,6 @@ I would like to thank Microverse .
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./MIT) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
